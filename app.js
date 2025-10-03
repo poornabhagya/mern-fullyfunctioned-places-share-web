@@ -25,6 +25,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// --- Health check route for Render ---
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.use('/api/places', placesRoutes); // => /api/places...
 app.use('/api/users', usersRoutes); // => /api/users...
 
